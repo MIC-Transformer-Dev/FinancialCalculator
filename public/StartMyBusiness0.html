@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="anthonygunardi@gmail.com">
+
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="description" content="Kalkulator Untuk Membantu Menghitung Keuangan Anda" />
+    <meta name="theme-color" content="#5755d9" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="My Financial Calculator" />
+    <link rel="apple-touch-icon" href="icons/128x128.png" />
+    <meta name="msapplication-TileColor" content="#5755d9">
+    <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
+
+    <title>My Financial Calculator</title>
+    <style>
+        .container {
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .panel {
+            padding: 20px;
+        }
+        .hero {
+            background-color: #3EA055;
+        }
+        .hero a, .hero p {
+            color: #fff;
+        }
+        .hero-body a {
+            text-decoration: none;
+            color: white;
+        }
+        @media screen and (min-width: 641px) {      
+            #bg{      
+                content:url('./images/header-desktop.png');
+                width: 100%;
+                object-fit: cover;
+                background-size: cover;
+            } 
+        } 
+
+        @media screen and (max-width: 640px) {      
+            #bg{      
+                content:url('./images/header.png');
+                width: 100%;
+                object-fit: cover;
+                background-size: cover;
+            } 
+        }
+        .greeting {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            padding: 20px;
+            margin-bottom: 50px;
+            border-radius: 12px
+        }
+        .button {
+            margin-top: 20px;
+            margin: auto;
+            border: none;
+            border-radius: 12px;
+            background-color: #009dff;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- <section class="hero hero-sm">
+        <div class="hero-body">
+            <img src="./images/Logo.png" style="width:100%; height:auto; max-width:100px;"/>
+            <a href="./index.html"><h1>
+                My Financial Calculator
+            </h1></a>
+            <p>
+                Kalkulator Untuk Membantu Menghitung Keuangan Anda
+            </p>
+        </div>
+    </section> -->
+
+    <div id="bg">
+    </div>
+
+    <div class="container">
+        <div class="panel">
+            <div class="greeting">
+                <p>Halo</p>
+                <p>Kalkulator ini akan membantu anda untuk memberikan perhitungan kebutuhan dana yang perlu disiapkan untuk membangun usaha anda.</p>
+                <br>
+                <p style="font-weight: bold;">Smart Financial - Happy Life</p>
+            </div>
+            <div class="col-3 col-mx-auto col-sm-12 col-xs-12 form-group">
+                <a class="col-3 col-mx-auto col-sm-12 col-xs-12 button" href="./StartMyBusiness.html">
+                    <div class="button">LANJUT</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.isUpdateAvailable = new Promise(function(resolve, reject) {
+                // lazy way of disabling service workers while developing
+                if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
+                    // register service worker file
+                    navigator.serviceWorker.register('/sw.js')
+                        .then(reg => {
+                            reg.onupdatefound = () => {
+                                const installingWorker = reg.installing;
+                                installingWorker.onstatechange = () => {
+                                    switch (installingWorker.state) {
+                                        case 'installed':
+                                            if (navigator.serviceWorker.controller) {
+                                                // new update available
+                                                resolve(true);
+                                            } else {
+                                                // no update available
+                                                resolve(false);
+                                            }
+                                            break;
+                                    }
+                                };
+                            };
+                        })
+                        .catch(err => console.error('[SW ERROR]', err));
+                }
+            });
+        }
+    </script>
+</body>
+</html>

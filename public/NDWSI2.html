@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="anthonygunardi@gmail.com">
+
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="description" content="Kalkulator Untuk Membantu Menghitung Keuangan Anda" />
+    <meta name="theme-color" content="#5755d9" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="My Financial Calculator" />
+    <link rel="apple-touch-icon" href="icons/128x128.png" />
+    <meta name="msapplication-TileColor" content="#5755d9">
+    <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
+
+    <title>My Financial Calculator</title>
+    <style>
+        .container {
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .panel {
+            padding: 20px;
+        }
+        .hero {
+            background-color: #3EA055;
+        }
+        .hero a, .hero p {
+            color: #fff;
+        }
+        .hero-body a {
+            text-decoration: none;
+            color: white;
+        }
+        @media screen and (min-width: 641px) {      
+            #bg{      
+                content:url('./images/header-desktop.png');
+                width: 100%;
+                object-fit: cover;
+                background-size: cover;
+            } 
+        } 
+
+        @media screen and (max-width: 640px) {      
+            #bg{      
+                content:url('./images/header.png');
+                width: 100%;
+                object-fit: cover;
+                background-size: cover;
+            } 
+        }
+        .button {
+            margin-top: 20px;
+            border: none;
+            border-radius: 12px;
+            background-color: #009dff;
+            font-weight: bold;
+            color: #fff;
+        }
+        .backbutton {
+            text-align: center;
+            margin-top: 40px;
+            border: none;
+            border-radius: 12px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            font-weight: bold;
+            color: black;
+        }
+        .slogan {
+            margin-top: 50px;
+            font-weight: bold;
+        }
+        #needsValue, #investmentsValue, #wantsValue, #savingValue {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- <section class="hero hero-sm">
+        <div class="hero-body">
+            <img src="./images/Logo.png" style="width:100%; height:auto; max-width:100px;"/>
+            <a href="./index.html" target="_blank"><h1>
+                My Financial Calculator
+            </h1></a>
+            <p>
+                Kalkulator Untuk Membantu Menghitung Keuangan Anda
+            </p>
+        </div>
+    </section> -->
+
+    <div id="bg">
+    </div>
+
+    <div class="container">
+        <div class="panel">
+            <h4>Kalkulasi Jika Tidak Terdapat Hutang</h4>
+            <div class="columns">
+                <div class="column col-3 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="form-label" for="needs">Needs (%)</label>
+                        <div class="control">
+                            <input class="form-input" placeholder="Masukkan persentase 'Needs'" id="needs"
+                            type="number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column col-3 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="form-label" for="wants">Wants (%)</label>
+                        <div class="control">
+                            <input class="form-input" placeholder="Masukkan persentase 'Wants'" id="wants"
+                            type="number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column col-3 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="form-label" for="saving">Saving (%)</label>
+                        <div class="control">
+                            <input class="form-input" placeholder="Masukkan persentase 'Savings'" id="saving"
+                            type="number">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column col-3 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label class="form-label" for="investments">Investments (%)</label>
+                        <div class="control">
+                            <input class="form-input" placeholder="Masukkan persentase 'Investments'" id="investments"
+                            type="number">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-6 col-sm-12 col-xs-12 form-group">
+                <label class="form-label" for="salary">Masukkan Nilai Salary Anda</label>
+                <div class="control">
+                    <input class="form-input" placeholder="Masukkan nilai 'Salary'" id="salary"
+                    type="text">
+                </div>
+            </div>
+
+            <button class="col-3 col-mx-auto col-sm-12 col-xs-12 form-group button" onclick="hitung()">HITUNG</button>
+
+            <button class="col-3 col-mx-auto col-sm-12 col-xs-12 form-group button" onclick="reset()">RESET</button>
+
+            <div class="column col-3 col-sm-12 col-xs-12">
+                <div class="form-group">
+                    <label class="form-label" for="needsValue">Needs</label>
+                    <div class="control">
+                        <input class="form-input" placeholder="Nominal kebutuhan anda" id="needsValue"
+                               disabled>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="wantsValue">Wants</label>
+                    <div class="control">
+                        <input class="form-input" placeholder="Nominal keinginan anda" id="wantsValue"
+                               disabled>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="savingValue">Saving</label>
+                    <div class="control">
+                        <input class="form-input" placeholder="Nominal tabungan anda" id="savingValue"
+                               disabled>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="investmentsValue">Investments</label>
+                    <div class="control">
+                        <input class="form-input" placeholder="Nominal investasi anda" id="investmentsValue"
+                               disabled>
+                    </div>
+                </div>
+
+                <div class="form-group slogan">
+                    Smart Financial - Happy Life
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-3 col-mx-auto col-sm-12 col-xs-12 form-group">
+            <a class="col-3 col-mx-auto col-sm-12 col-xs-12 button" href="./index.html">
+                <div class="backbutton">BACK TO HOME</div>
+            </a>
+        </div>
+        <br>
+        
+    </div>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.isUpdateAvailable = new Promise(function(resolve, reject) {
+                // lazy way of disabling service workers while developing
+                if ('serviceWorker' in navigator && ['localhost', '127'].indexOf(location.hostname) === -1) {
+                    // register service worker file
+                    navigator.serviceWorker.register('/sw.js')
+                        .then(reg => {
+                            reg.onupdatefound = () => {
+                                const installingWorker = reg.installing;
+                                installingWorker.onstatechange = () => {
+                                    switch (installingWorker.state) {
+                                        case 'installed':
+                                            if (navigator.serviceWorker.controller) {
+                                                // new update available
+                                                resolve(true);
+                                            } else {
+                                                // no update available
+                                                resolve(false);
+                                            }
+                                            break;
+                                    }
+                                };
+                            };
+                        })
+                        .catch(err => console.error('[SW ERROR]', err));
+                }
+            });
+        }
+
+        let salary = document.getElementById('salary');
+        salary.addEventListener('keyup', function(e) {
+            salary.value = formatRupiah(this.value);
+        });
+
+        function formatRupiah(angka, prefix) {
+            let number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split    = number_string.split(','),
+                sisa     = split[0].length % 3,
+                rupiah     = split[0].substr(0, sisa),
+                ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+                
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+            
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+
+        function hitung() {
+            let needs = document.getElementById('needs').value
+            let wants = document.getElementById('wants').value
+            let saving = document.getElementById('saving').value
+            let investments = document.getElementById('investments').value
+            let salary = document.getElementById('salary').value.replace(/\D/g,'');
+            let needsValue = Math.round(needs /100 * salary)
+            let wantsValue = Math.round(wants /100 * salary)
+            let savingValue = Math.round(saving /100 * salary)
+            let investmentsValue = Math.round(investments /100 * salary)
+            
+            if (+needs + +wants + +saving + +investments  == 100) {
+                document.getElementById('needsValue').value = needsValue.toLocaleString('id-ID')
+                document.getElementById('wantsValue').value = wantsValue.toLocaleString('id-ID')
+                document.getElementById('savingValue').value = savingValue.toLocaleString('id-ID')
+                document.getElementById('investmentsValue').value = investmentsValue.toLocaleString('id-ID')
+            } else {
+                alert("Total Persentase Harus 100%")
+            }
+        }
+
+        function reset() {
+            document.getElementById('needs').value = ''
+            document.getElementById('wants').value = ''
+            document.getElementById('saving').value = ''
+            document.getElementById('investments').value = ''
+            document.getElementById('salary').value = ''
+            document.getElementById('needsValue').value = ''
+            document.getElementById('wantsValue').value = ''
+            document.getElementById('savingValue').value = ''
+            document.getElementById('investmentsValue').value = ''
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "Financial Calculator",
+  "short_name": "Financial Calculator",
+  "description": "Kalkulator Untuk Membantu Menghitung Keuangan Anda",
+  "lang": "id-ID",
+  "dir": "ltr",
+  "theme_color": "#5755d9",
+  "start_url": ".",
+  "background_color": "#5755d9",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "icons": [{
+    "src": "icons/apple-icon-72x72.png",
+    "sizes": "72x72",
+    "type": "image/png"
+  }, {
+    "src": "icons/512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
